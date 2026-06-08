@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+
+{% block title %} All Members  {% endblock  %}
+
+{% block content %}
+
+<h1>All Members</h1>
+
+<ul>
+  {% for member in members %}
+    {% comment %} <li><a href = "details/{{ member.id }}"> {% endcomment %}
+    <li><a href = "{% url 'member_details' member.id %}">
+      {{ member.first_name }} 
+      {{member.last_name }} </a> </li>
+  {% endfor %}
+</ul>
+<!-- <button><a href="/members/">Back to Members</a></button> -->
+<button><a href="{% url 'home' %}">Back to Home</a></button>
+
+{% endblock %}

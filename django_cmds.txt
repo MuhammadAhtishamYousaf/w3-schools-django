@@ -1,0 +1,22 @@
+all django commands
+
+# Create a new Django project
+django-admin startproject my_tennis_club
+
+# Create a new Django app
+python manage.py startapp members
+
+# Run the development server
+python manage.py runserver
+
+# Make migrations for the database
+python manage.py makemigrations
+
+# Apply the migrations to the database
+python manage.py migrate
+
+# See sql of migrations
+py manage.py sqlmigrate members(app name) 0001(migration name)
+
+
+

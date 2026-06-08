@@ -1,0 +1,19 @@
+{% extends "master.html" %}
+
+{% block title %} Member Details {% endblock  %}
+
+{% block content %}
+<h1>Member Details</h1>
+  
+<ul>
+    <li>
+      {{ member.first_name }} 
+      {{member.last_name }} - {{member.age}} - {{member.phone}} - 
+      {{member.created_at.time}} - {{member.updated_at.date}}
+    </li>
+
+</ul>
+<!-- <button><a href="/members/">Back to Members</a></button> -->
+<button><a href="{% url 'members' %}">Back to Members</a></button>
+
+{% endblock %}
