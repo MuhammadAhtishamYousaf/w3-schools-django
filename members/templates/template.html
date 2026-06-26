@@ -2,11 +2,14 @@
 <html>
 <body>
 
+{% include "mymenu.html" with me="Ahtisham" sponsor="W3 Schools" %}
 {% for fruit in fruits %}
-  <h1>{{ fruit }}</h1>
+  <h1 style = "color: {% cycle 'red' 'blue' 'green' %}">{{ fruit }}</h1>
 {% endfor %}
 
 <p>In views.py you can see what the fruits variable looks like.</p>
+
+{% include "footer.html" %}
 
 </body>
 </html>

@@ -1,0 +1,19 @@
+{% extends "master.html" %}
+
+
+{% block title %} With Tag {% endblock  %}
+
+{% block content %}
+{% comment 'simple with tag' %} {% with firstname="Ahtisham" %}
+<h1>Hello {{ firstname }}, how are you?</h1>
+{% endwith %} {% endcomment %}
+
+{% with var1=x var2=x %}
+  {% if var1 is var2 %}
+    <h1>YES</h1>
+  {% else %}
+    <h1>NO</h1>
+  {% endif %}
+{% endwith %}
+
+{% endblock  %}

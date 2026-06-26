@@ -7,12 +7,17 @@
 <h1>All Members</h1>
 
 <ul>
-  {% for member in members %}
-    {% comment %} <li><a href = "details/{{ member.id }}"> {% endcomment %}
-    <li><a href = "{% url 'member_details' member.id %}">
-      {{ member.first_name }} 
-      {{member.last_name }} </a> </li>
-  {% endfor %}
+    {% comment 'used to make the list reverse' %} {% for member in members reversed %} {% endcomment %}
+  
+    {% for member in members %}
+    {% comment "static url" %} <li><a href = "details/{{ member.id }}"> {% endcomment %}
+    
+        <li><a href = "{% url 'member_details' member.id %}">
+            {{ forloop.counter }} {{ member.first_name }} {{member.last_name }} 
+        </a> </li>
+    {% empty %}
+        <p>No Members {#Found#} </p>
+    {% endfor %}
 </ul>
 <!-- <button><a href="/members/">Back to Members</a></button> -->
 <button><a href="{% url 'home' %}">Back to Home</a></button>

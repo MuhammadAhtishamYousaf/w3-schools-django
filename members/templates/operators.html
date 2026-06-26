@@ -1,0 +1,79 @@
+{% extends "master.html" %}
+
+{% block title %} Operators {% endblock  %}
+
+{% block content %}
+
+    {% comment "if elif else statements" %} {% with operator='!=' %}
+
+        {% if operator %}
+
+            {% if operator == '=' %}
+            <h1>Operator =</h1>
+            {% elif operator == '!=' %}
+            <h1>Operator !=</h1>
+            {% endif %}
+        
+        {% else %}
+            <h1>Operator None</h1>
+        {% endif %}
+
+    {% endwith %}  {% endcomment %}
+
+    
+
+    <h2>Comparison operators</h2>
+
+    {% if greeting == 5 %}
+        <p>greeting == 5</p>
+
+    {% elif greeting < 5 %}
+        <p>greeting &lt; 5</p>
+
+    {% elif greeting > 5 %}
+        <p>greeting &gt; 5</p>
+
+    {% endif %}
+
+    <h2>Logical operators</h2>
+
+    {% if greeting > 5 and greeting < 10 %}
+        <p>greeting is between 6 and 9</p>
+    {% endif %}
+
+    {% if greeting == 1 or day == "Friday" %}
+        <p>greeting == 1 or today is Friday</p>
+    {% endif %}
+
+    {% if not greeting %}
+        <p>greeting is falsey (0, empty, or None)</p>
+
+    {% else %}
+        <p>greeting is truthy</p>
+        
+    {% endif %}
+
+    <h2>Membership operators</h2>
+
+    {% if "Banana" in fruits %}
+        <p>Banana is in fruits</p>
+    {% endif %}
+
+    {% if "Grape" not in fruits %}
+        <p>Grape is not in fruits</p>
+    {% endif %}
+
+    <h2>`is` / `is not`</h2>
+
+    {% if member is None %}
+        <p>member is None</p>
+    {% endif %}
+
+    {% if member is not None %}
+        <p>member is not None</p>
+    {% endif %}
+
+
+
+
+{% endblock  %}
