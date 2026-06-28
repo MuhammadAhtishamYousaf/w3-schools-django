@@ -1,0 +1,126 @@
+{% extends "master.html" %}
+
+{% block title %}
+Create Member
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .form-container {
+            width: 450px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        form p {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .errorlist {
+            color: red;
+            list-style: none;
+            padding: 0;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+    </style>
+
+
+{% endblock  %}
+
+{% block content %}
+
+
+<div class="form-container">
+
+    <h2>Create Member</h2>
+
+    <form method="POST" action = "{% url 'create_member' %}" novalidate>
+
+        {% csrf_token %}
+
+        <div>
+            <label for="{{ form.first_name.id_for_label }}">First Name</label>
+            {{ form.first_name }}
+            {% if form.first_name.errors %}
+                <div class="errorlist">
+                    {% for error in form.first_name.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+            {{ form.last_name }}
+            {{ form.last_name.errors }}
+        </div>
+
+        <div>
+            <label for="{{ form.age.id_for_label }}">Age</label>
+            {{ form.age }}
+            {{ form.age.errors }}
+        </div>
+
+        <div>
+            <label for="{{ form.phone.id_for_label }}">Phone</label>
+            {{ form.phone }}
+            {{ form.phone.errors }}
+        </div>
+
+        <button type="submit">Create Member</button>
+    </form>
+
+</div>
+
+{% endblock %}

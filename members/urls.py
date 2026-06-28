@@ -10,4 +10,5 @@ urlpatterns = [
     path('members/details/<slug:slug>/', views.member_details, name = "member_details"),
     path('with-tag', views.with_tag),
     path('operators', views.operators),
+    path('create_member', views.create_member, name = 'create_member')
 ]

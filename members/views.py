@@ -1,11 +1,12 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from django.db.models import Q, QuerySet
 
 
 from members.models import Member
+from members.forms.member_creation_form import MemberCreationForm
 
 
 
@@ -69,3 +70,17 @@ def operators(request):
         'member': None,
     }
     return render(request, 'operators.html', context)
+
+
+
+def create_member(request):
+    if request.method == 'POST':
+        form = MemberCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('members')
+    
+    else:
+        form = MemberCreationForm()
+        
+    return render(request, 'member_creation_form.html', {'form': form} )
