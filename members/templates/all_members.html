@@ -12,7 +12,7 @@
     {% for member in members %}
     {% comment "static url" %} <li><a href = "details/{{ member.id }}"> {% endcomment %}
     
-        <li><a href = "{% url 'member_details' member.id %}">
+        <li><a href = "{% url 'member_details' member.slug %}">
             {{ forloop.counter }} {{ member.first_name }} {{member.last_name }} 
         </a> </li>
     {% empty %}

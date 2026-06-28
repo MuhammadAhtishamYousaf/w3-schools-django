@@ -19,4 +19,5 @@ python manage.py migrate
 py manage.py sqlmigrate members(app name) 0001(migration name)
 
 
-
+# To collect static files into STATIC_ROOT
+py manage.py collectstatic

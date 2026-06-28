@@ -7,6 +7,7 @@ from members.models import Member
 
 class MemberAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'created_at')
+    prepopulated_fields = {"slug": ("first_name", "last_name")}
 
 
 admin.site.register(Member, MemberAdmin)
